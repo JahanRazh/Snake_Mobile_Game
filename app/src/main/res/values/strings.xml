@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Snake game</string>
+    <string name="down">DOWN</string>
+    <string name="left">LEFT</string>
+    <string name="new_game">New Game</string>
+    <string name="pause">pause</string>
 </resources>
