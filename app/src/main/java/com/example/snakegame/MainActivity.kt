@@ -96,13 +96,6 @@ class MainActivity : Activity() {
 
 
 
-
-
-
-
-
-
-
             fun checkFoodCollision() {
                 val distanceThreshold = 50
 
@@ -142,8 +135,6 @@ class MainActivity : Activity() {
             }
 
 
-
-
             val runnable = object : Runnable {
                 override fun run() {
 
@@ -156,8 +147,8 @@ class MainActivity : Activity() {
                     when (currentDirection) {
                         "up" -> {
                             snakeY -= 10
-                            if (snakeY < -490) { // Check if the ImageView goes off the top of the board
-                                snakeY = -490f
+                            if (snakeY < -600) { // Check if the ImageView goes off the top of the board
+                                snakeY = -600f
                                 border.setBackgroundColor(getResources().getColor(R.color.red))
                                 playagain.visibility = View.VISIBLE
                                 currentDirection = "pause"
@@ -194,8 +185,8 @@ class MainActivity : Activity() {
                         }
                         "left" -> {
                             snakeX -= 10
-                            if (snakeX < -490) { // Check if the ImageView goes off the top of the board
-                                snakeX = -490f
+                            if (snakeX < -600) { // Check if the ImageView goes off the top of the board
+                                snakeX = -600f
                                 border.setBackgroundColor(getResources().getColor(R.color.red))
                                 playagain.visibility = View.VISIBLE
                                 currentDirection = "pause"
@@ -219,6 +210,7 @@ class MainActivity : Activity() {
                                 playagain.visibility = View.VISIBLE
                                 currentDirection = "pause"
                                 lilu.visibility = View.INVISIBLE
+
 
                                 score.text =   "your score is  " + scorex.toString() // Update delay text view
                                 score.visibility = View.VISIBLE
