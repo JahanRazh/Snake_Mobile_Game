@@ -12,14 +12,14 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@color/green"
-        android:text="score"
+        android:text="@string/score"
         android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lilu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextSizeCheck" />
+        tools:ignore="SpUsage,TextSizeCheck" />
 
     <!-- Game board layout -->
     <RelativeLayout
@@ -42,11 +42,11 @@
             android:layout_marginTop="140dp"
             android:layout_marginEnd="120dp"
             android:background="@color/green"
-            android:text="Game Over !! Play Again"
+            android:text="@string/game_over_play_again"
             android:textAlignment="center"
             android:textColor="#616161"
             android:textSize="15dp"
-            tools:ignore="TextSizeCheck" />
+            tools:ignore="RelativeOverlap,SpUsage,TextSizeCheck" />
 
         <!-- New game button -->
         <Button
@@ -56,7 +56,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="130dp"
             android:layout_marginEnd="130dp"
-            android:background="@color/purple_700"
+            android:background="@color/blue"
             android:text="@string/new_game"
             android:textColor="#000000" />
 
@@ -69,8 +69,8 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="130dp"
-            android:background="@color/purple_700"
-            android:text="Resume Game"
+            android:background="@color/blue"
+            android:text="@string/resume_game"
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -84,10 +84,11 @@
             android:layout_marginTop="60dp"
             android:layout_marginEnd="120dp"
             android:background="@color/red"
-            android:text="Game Over ! Play Again"
+            android:text="@string/game_over_play_againn"
             android:textAlignment="center"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="SpUsage,TextSizeCheck" />
 
         <!-- Game board area -->
         <RelativeLayout
@@ -97,7 +98,7 @@
             android:layout_marginLeft="5dp"
             android:background="@color/blue"
             android:gravity="center"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints,RtlHardcoded" />
 
         </RelativeLayout>
 
@@ -124,7 +125,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="UP" />
+                android:text="@string/up" />
         </LinearLayout>
 
         <LinearLayout
@@ -138,7 +139,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="@string/left" />
+                android:text="@string/left"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/pause"
@@ -146,7 +148,8 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/pause" />
+                android:text="@string/pause"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/right"
@@ -155,7 +158,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:text="RIGHT" />
+                android:text="@string/right"
+                tools:ignore="ButtonStyle" />
         </LinearLayout>
 
         <LinearLayout

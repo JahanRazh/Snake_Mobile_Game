@@ -4,4 +4,10 @@
     <string name="left">LEFT</string>
     <string name="new_game">New Game</string>
     <string name="pause">pause</string>
+    <string name="game_over_play_again">Game Over !! Play Again</string>
+    <string name="score">score</string>
+    <string name="right">RIGHT</string>
+    <string name="game_over_play_againn">Game Over ! Play Again</string>
+    <string name="resume_game">Resume Game</string>
+    <string name="up">UP</string>
 </resources>
