@@ -1,6 +1,8 @@
 package com.example.snakegame
 
 import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -15,10 +17,12 @@ import kotlin.math.pow
 import kotlin.math.sqrt
 
 class MainActivity : Activity() {
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private var highScore = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         val board = findViewById<RelativeLayout>(R.id.board)
         val border = findViewById<RelativeLayout>(R.id.relativeLayout)
         val lilu = findViewById<LinearLayout>(R.id.lilu)
@@ -41,7 +45,10 @@ class MainActivity : Activity() {
         var currentDirection = "right" // Start moving right by default
         var scorex = 0
 
-
+        // Initialize SharedPreferences
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        // Retrieve the high score from SharedPreferences
+        highScore = sharedPreferences.getInt("highScore", 0)
 
         board.visibility = View.INVISIBLE
         playagain.visibility = View.INVISIBLE
@@ -70,10 +77,6 @@ class MainActivity : Activity() {
             var snakeY = snake.y
 
 
-
-
-
-
             meat.setImageResource(R.drawable.meat)
             meat.layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -90,7 +93,6 @@ class MainActivity : Activity() {
 
             meat.x = randomX.toFloat()
             meat.y = randomY.toFloat()
-
 
 
             fun checkFoodCollision() {
@@ -124,13 +126,21 @@ class MainActivity : Activity() {
                     delayMillis-- // Reduce delay value by 1
                     scorex++
 
-                    score2.text =   "score : " + scorex.toString() // Update delay text view
+                    // Update high score if necessary
+                    if (scorex > highScore) {
+                        highScore = scorex
+                        // Save the new high score to SharedPreferences
+                        val editor = sharedPreferences.edit()
+                        editor.putInt("highScore", highScore)
+                        editor.apply()
+                    }
 
 
+                    // Update the score text view with current and high score
+                    score2.text = "Score: $scorex \nHigh Score: $highScore" // Update delay text view
 
                 }
             }
-
 
             val runnable = object : Runnable {
                 override fun run() {
@@ -139,7 +149,6 @@ class MainActivity : Activity() {
                         snakeSegments[i].x = snakeSegments[i - 1].x
                         snakeSegments[i].y = snakeSegments[i - 1].y
                     }
-
 
                     when (currentDirection) {
                         "up" -> {
@@ -151,11 +160,9 @@ class MainActivity : Activity() {
                                 currentDirection = "pause"
                                 lilu.visibility = View.INVISIBLE
 
-                                score.text =   "your score is  " + scorex.toString() // Update delay text view
+                                score.text =   "your score is  " + scorex.toString()// Update delay text view
                                 score.visibility = View.VISIBLE
                                 score2.visibility = View.INVISIBLE
-
-
 
                             }
 
