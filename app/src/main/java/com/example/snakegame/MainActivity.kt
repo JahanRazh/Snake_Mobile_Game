@@ -11,7 +11,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.widget.Toast
 import java.util.*
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -36,7 +35,7 @@ class MainActivity : Activity() {
         val playagain = findViewById<Button>(R.id.playagain)
         val score = findViewById<Button>(R.id.score)
         val score2 = findViewById<Button>(R.id.score2)
-        val meat = ImageView(this)
+        val gems = ImageView(this)
         val snake = ImageView(this)
         val snakeSegments =
             mutableListOf(snake) // Keep track of the position of each snake segment
@@ -77,12 +76,12 @@ class MainActivity : Activity() {
             var snakeY = snake.y
 
 
-            meat.setImageResource(R.drawable.meat)
-            meat.layoutParams = ViewGroup.LayoutParams(
+            gems.setImageResource(R.drawable.gems)
+            gems.layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
-            board.addView(meat)
+            board.addView(gems)
 
             val random = Random() // create a Random object
             val randomX =
@@ -91,14 +90,14 @@ class MainActivity : Activity() {
                 random.nextInt(801) - 400 // generate a random y-coordinate between -400 and 400
 
 
-            meat.x = randomX.toFloat()
-            meat.y = randomY.toFloat()
+            gems.x = randomX.toFloat()
+            gems.y = randomY.toFloat()
 
 
             fun checkFoodCollision() {
                 val distanceThreshold = 50
 
-                val distance = sqrt((snake.x - meat.x).pow(2) + (snake.y - meat.y).pow(2))
+                val distance = sqrt((snake.x - gems.x).pow(2) + (snake.y - gems.y).pow(2))
 
                 if (distance < distanceThreshold) { // Check if the distance between the snake head and the meat is less than the threshold
 
@@ -119,8 +118,8 @@ class MainActivity : Activity() {
                         random.nextInt(801) - -100
 
 
-                    meat.x = randomX.toFloat()
-                    meat.y = randomY.toFloat()
+                    gems.x = randomX.toFloat()
+                    gems.y = randomY.toFloat()
 
 
                     delayMillis-- // Reduce delay value by 1
