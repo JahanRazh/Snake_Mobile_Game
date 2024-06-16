@@ -1,4 +1,5 @@
-![gem snake mobile game](https://github.com/JahanRazh/Snake_Mobile_Game/assets/121393192/4142be2a-12c2-4739-8876-4739530edbe5)
+![gem snake mobile game](https://github.com/JahanRazh/Snake_Mobile_Game/assets/121393192/4e2ccbc0-8cc7-49d9-a48a-48af3241e03b)
+
 
 In this snake mobile game, players earn points by consuming gems, with each gem adding one point to their score. The game keeps track of the highest score attained across multiple sessions, motivating players to beat their personal best. With pause and resume functionality, players can take breaks without losing their progress or score. However, touching the game boundary ends the game, necessitating a restart. While gems continue to boost the score, players must avoid letting the snake touch the deadline to avoid a game over. It's a challenging yet engaging experience that tests players' agility and strategic planning as they strive to achieve the highest score possible.
 
